@@ -1,1 +1,1 @@
-# Next.js Pokedex with Tailwind
+# Nextjs with Cockpit CMS Example
