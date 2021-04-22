@@ -22,6 +22,7 @@ function IndexPage({ data, posts, popularPost }) {
 				</div>
 				{popularPost.entries.map(popular => (
 				<div key={popular.title_slug} className="relative bg-center bg-cover bg-no-repeat mb-40 w-11/12 mx-auto xl:w-full h-64">
+					<Link href={"/post/" + popular.title_slug}><a>
 					<Image
 						className="h-full w-full object-cover overflow-hidden absolute rounded"
 						src={IMAGE_PATH + popular.image.path}
@@ -30,13 +31,16 @@ function IndexPage({ data, posts, popularPost }) {
 						width={1000}
 						height={250}
 					/>
+					</a></Link>
 					<div className="absolute bottom-0 w-11/12 ml-2 xl:mx-0 lg:mx-0 xl:w-6/12 lg:w-6/12 xl:ml-12 lg:ml-12 rounded-md lg:-mb-56 sm:-mb-48 -mb-64 xl:-mb-24">
 						<div className="w-full py-5 px-6 bg-white shadow rounded">
-							<p className="text-xl text-gray-800 font-bold pb-2">{popular.title}</p>
+							<Link href={"/post/" + popular.title_slug}><a>
+								<p className="text-xl text-gray-800 font-bold pb-2">{popular.title}</p>
+							</a></Link>
 							<p className="text-base text-gray-600">{popular.excerpt}</p>
 							<div className="pt-4 flex justify-between">
 								<p className="text-sm text-gray-600">
-									{format(new Date(popular._created * 1000), 'MMMM dd, yyyy') } by <span className="text-purple-700"> {popular.user[0].name}</span>
+									{format(new Date(popular._created * 1000), 'MMMM dd, yyyy') } by <span className = "text-purple-700"> {popular.user[0].name}</span>
 								</p>
 							</div>
 						</div>
@@ -50,17 +54,21 @@ function IndexPage({ data, posts, popularPost }) {
 						{posts.entries.map(post => (
 						<div key={post.title_slug} className="lg:w-1/2 xl:w-1/4 mx-auto xl:mx-0 md:w-1/2 flex sm:mx-auto mb-6 items-center">
 							<div className="h-16 w-20">
+								<Link href={"/post/" + post.title_slug}><a>
 								<Image
 									className="h-full w-full object-cover overflow-hidden rounded shadow"
 									src={post.imageData}
 									alt={post.title}
 									width={300}
 									height={300}
-								/>
+								/></a>
+								</Link>
 							</div>
 							<div className="pt-3 pb-3 ml-2 pr-5">
 								<p className="uppercase text-xs text-purple-700">{format(new Date(post._created * 1000), 'MMMM dd, yyyy')}</p>
-								<p className="text-base text-gray-800">{post.title}</p>
+								<Link href={"/post/" + post.title_slug}><a>
+									<p className="text-base text-gray-800">{post.title}</p>
+								</a></Link>
 							</div>
 						</div>
 						))}

@@ -15,7 +15,7 @@ export default function Footer() {
 				</li>
 				<li>
 					<a
-						href="https://github.com/bayukurniawan30/next-tailwind"
+						href="https://github.com/bayukurniawan30/nextjs-cockpit-blog"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="font-bold"
